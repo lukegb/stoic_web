@@ -17,10 +17,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't-1bm#u1gcj#y0lxnh#_a=ihe$$4bg(-(*%&=(*#q=ya)q8drl'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY','t-1bm#u1gcj#y0lxnh#_a=ihe$$4bg(-(*%&=(*#q=ya)q8drl')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DJANGO_DEBUG',False),
 
 TEMPLATE_DEBUG = True
 
@@ -57,8 +57,12 @@ WSGI_APPLICATION = 'stoic_web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DJANGO_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('DJANGO_DB_NAME',os.path.join(BASE_DIR, 'db.sqlite3')),
+	'USER': os.get('DJANGO_DB_USER'),
+	'PASSWORD': os.get('DJANGO_DB_PASSWORD'),
+	'HOST': os.get('DJANGO_DB_HOST'),
+	'PORT': os.get('DJANGO_DB_PORT'),
     }
 }
 
