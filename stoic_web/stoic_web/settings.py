@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,10 +60,10 @@ DATABASES = {
     'default': {
         'ENGINE': os.getenv('DJANGO_DB_ENGINE', 'django.db.backends.sqlite3'),
         'NAME': os.getenv('DJANGO_DB_NAME',os.path.join(BASE_DIR, 'db.sqlite3')),
-	'USER': os.get('DJANGO_DB_USER'),
-	'PASSWORD': os.get('DJANGO_DB_PASSWORD'),
-	'HOST': os.get('DJANGO_DB_HOST'),
-	'PORT': os.get('DJANGO_DB_PORT'),
+	'USER': os.environ.get('DJANGO_DB_USER'),
+	'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD'),
+	'HOST': os.environ.get('DJANGO_DB_HOST'),
+	'PORT': os.environ.get('DJANGO_DB_PORT'),
     }
 }
 
