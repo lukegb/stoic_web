@@ -25,4 +25,4 @@ def migrate(app_name):
 
 def runserver():
 	test()
-	loccal('python '+BASE_DIR+'/stoic_web/manage.py runserver 0.0.0.0:8000')
+	local('python '+BASE_DIR+'/stoic_web/manage.py runserver 0.0.0.0:8000')

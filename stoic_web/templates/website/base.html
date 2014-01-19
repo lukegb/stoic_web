@@ -1,13 +1,14 @@
 {% load activelink %}
-<html>
+<!doctype html><html>
 	<head>
+		{% block head %}
+		{% endblock %}
 		{% block css %}
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
 		{% endblock %}
 		{% block webfonts %}
 		<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		{% endblock %}
 	</head>
