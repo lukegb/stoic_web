@@ -1,0 +1,16 @@
+.module {
+	text-align:center;
+	color:#FFF;
+	min-height:250px;
+}
+
+.module-content {
+position:relative;
+top:60px;
+}
+.module-red {background-color:#E73F3F;}
+.module-blue {background-color:#6D9DD1;}
+.module-purple {background-color:#7E45D3;}
+.module-orange {background-color:#F76C27;}
+.module-yellow {background-color:#E7E737;}
+

@@ -1,0 +1,10 @@
+body,
+.pure-g [class *= "pure-u"],
+.pure-g-r [class *= "pure-u"] {
+	    /* Set your content font stack here: */
+	    font-family: "Open Sans", Helvetica, Ariel, "sans-serif";
+    }
+
+[class*="fontawesome-"]:before {
+	  font-family: 'FontAwesome', sans-serif;
+  }
