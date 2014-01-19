@@ -1,0 +1,36 @@
+.stoic-red {background-color:#E73F3F;}
+.stoic-black {background-color:#000;}
+.stoic-white {background-color:#FFF}
+
+#menu {
+	background-color:#E73F3F;
+	color:white;
+	border:none;
+	position:fixed;
+	left:0;
+	top:0;
+	bottom:0;
+}
+#menu .pure-menu {
+	border:inherit;
+	background-color:transparent;
+}
+
+#menu .pure-menu-open {
+	background-color:transparent;
+}
+.pure-menu-open li, .pure-menu-open .pure-menu-heading {
+	background-color:transparent;
+	color:white;
+}
+
+.pure-menu-open li a {
+	background-color:transparent;
+	color:white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#menu .pure-menu-open li a:hover {
+	background-color:black;
+}
+

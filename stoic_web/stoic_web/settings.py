@@ -87,8 +87,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.getenv('DJANGO_STATIC_URL', '/static/')
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
+    'django.core.context_processors.static',
+)
+
+TEMPLATE_DIRS = (
+    BASE_DIR + '/templates/'
 )
