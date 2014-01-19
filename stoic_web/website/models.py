@@ -10,5 +10,10 @@ class Video(models.Model):
     title=models.CharField(max_length=50)
     description=models.CharField(max_length=200, blank=True)
 
- 
+class Programme(models.Model):
+    """ Which 'Programme' the video belongs to 
+    """
+    slug=models.CharField(max_length=15)
+    name=models.CharField(max_length=50)
+    description=models.CharField(max_length=200, blank=True)
  
