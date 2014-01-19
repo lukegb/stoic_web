@@ -40,10 +40,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'activelink',
+    'debug_toolbar',
     'website',
 )
 
 MIDDLEWARE_CLASSES = (
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,7 +91,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = os.getenv('DJANGO_STATIC_URL', '/static/')
-
+STATIC_ROOT=os.getenv('DJANGO_STATIC_DOC_ROOT', os.path.abspath("static_root"))
+STATICFILES_DIRS= (
+		os.path.abspath("static"),
+)
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'django.core.context_processors.static',
@@ -98,3 +103,6 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 TEMPLATE_DIRS = (
     BASE_DIR + '/templates/website'
 )
+
+INTERNAL_IPS = ('127.0.0.1',os.getenv('DJANGO_DEV_IP', '::1'),)
+
