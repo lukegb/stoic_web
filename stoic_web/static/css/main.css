@@ -30,12 +30,18 @@
 .pure-menu-open li a {
 	background-color:transparent;
 	color:white;
-	padding-top: 10px;
+	padding-top: 12px;
 	padding-bottom: 10px;
+}
+#menu .pure-menu-open li a.nav_active_link, #menu .pure-menu-open li a.nav_active_link:hover {
+	background-color:#FFF;
+	color:#E73F3F;
 }
 #menu .pure-menu-open li a:hover {
 	background-color:black;
 }
+
+
 
 
 /* Typography */

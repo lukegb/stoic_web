@@ -23,7 +23,8 @@
 						<div class="pure-menu pure-menu-open">
 							<a href="#" class="pure-menu-heading">Main</a>
 							<ul>
-								<li><a href="#">Home</a></li>
+								<li><a class="{% ifactive "home" %}nav_active_link{% endifactive %}" href="{%  url "home" %}">Home</a></li>
+								<li><a class="{% ifactive "live" %}nav_active_link{% endifactive %}" href="{% url "live" %}">STOIC Live</a></li>
 								<li><a href="#">Shows</a></li>
 								<li><a href="#">Events</a></li>
 								<li><a href="#">Film In A Week</a></li>
@@ -31,6 +32,7 @@
 								<li><a href="#">Services</a></li>
 								<li><a href="#">Tech Team</a></li>
 								<li><a href="#">Contact</a></li>
+								<li><a href="https://www.imperialcollegeunion.org/shop/club-society-project-products/stoic-tv-products">Join Us</a></li>
 							</ul>
 						</div>
 					</div>
