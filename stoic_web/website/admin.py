@@ -10,7 +10,7 @@ class VideoAdmin(admin.ModelAdmin):
 
 class ProgAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['name', 'slug', 'description']}),
+        (None, {'fields': ['name', 'slug', 'featured','description']}),
     ]
 
 admin.site.register(Video, VideoAdmin)

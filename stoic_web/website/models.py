@@ -7,7 +7,7 @@ class Programme(models.Model):
     slug=models.CharField(max_length=15, unique=True)
     name=models.CharField(max_length=50)
     description=models.TextField( blank=True)
- 
+    featured=models.BooleanField( default=False)
     def __unicode__(self):
         return self.name
 
@@ -22,3 +22,6 @@ class Video(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def thumbnail(self):
+	    return '/'.join(['http://img.youtube.com/vi',self.youtube_id,'0.jpg'])
