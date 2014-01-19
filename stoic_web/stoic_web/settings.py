@@ -96,5 +96,5 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 )
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/templates/'
+    BASE_DIR + '/templates/website'
 )
