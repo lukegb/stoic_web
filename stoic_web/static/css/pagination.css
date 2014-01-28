@@ -1,0 +1,16 @@
+#main i.pagination-active  {
+    color:#333;
+}
+
+#main i.pagination-dead  { 
+    color:#D9E0E0;
+}
+
+#main .pagination .page-current {
+    font-size:80%;
+}
+
+#main .pagination {
+    text-align:center;
+    margin:10px;
+}

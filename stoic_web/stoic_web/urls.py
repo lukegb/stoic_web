@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     # url(r'^$', include('website.urls')),
     url(r'^$', views.IndexView.as_view(), name='home'),
+    url(r'blog/$', views.BlogListView.as_view(), name='blog_index'),
     url(r'^live/', TemplateView.as_view(template_name="live.html"), name='live'),
     url(r'^admin/', include(admin.site.urls)),
 )

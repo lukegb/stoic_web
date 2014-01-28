@@ -38,9 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'south',
     'activelink',
     'debug_toolbar',
+    'suit_redactor',
     'website',
 )
 
@@ -91,7 +93,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = os.getenv('DJANGO_STATIC_URL', '/static/')
+MEDIA_URL = os.getenv('DJANGO_MEDIA_URL' ,'/media/')
 STATIC_ROOT=os.getenv('DJANGO_STATIC_DOC_ROOT', os.path.abspath("static_root"))
+MEDIA_ROOT=os.getenv('DJANGO_MEDIA_ROOT', os.path.abspath("media_root"))
 STATICFILES_DIRS= (
 		os.path.abspath("static"),
 )

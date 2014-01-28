@@ -7,7 +7,26 @@
 .module-content {
 position:relative;
 top:60px;
+width:100%;
+min-height:100%;
+
 }
+
+.module a {
+    color: white; text-decoration: none;
+}
+.module h2, .module h3 {
+    margin:0;
+}
+
+.module p {
+ opacity: 0.5;
+ background-color:rgba(255,255,255,0.67);
+ color:#333;
+ font-size:80%;
+ margin:10px 0 0 0;
+}
+
 .module-red {background-color:#E73F3F;}
 .module-blue {background-color:#6D9DD1;}
 .module-purple {background-color:#7E45D3;}
