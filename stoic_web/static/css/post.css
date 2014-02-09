@@ -1,20 +1,20 @@
 
-.blog-mini {
+.post-mini {
     background-color:#D9E0E0;
     padding:10px;
     margin-bottom:10px;
 }
-.blog-mini h2 {
+.post-mini h2 {
     display:inline-block;
 }
-.blog-mini-content {
+.post-mini-content {
     min-height:100px;
 }
-#main .blog-mini-image {
+#main .post-mini-image {
     max-width:30% ;
     
 }
-.blog-meta {
+.post-meta {
     font-size:80%;
 }
 .float-right {

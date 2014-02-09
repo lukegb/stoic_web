@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelForm
-from website.models import Video, Programme, Blog, Event
+from website.models import Video, Programme, Blog, Event, Link
 from suit_redactor.widgets import RedactorWidget
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
 class VideoAdmin(admin.ModelAdmin):
@@ -13,8 +13,14 @@ class ProgAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name', 'slug', 'featured','description']}),
     ]
+class LinkInline(admin.StackedInline):
+    model=Link
 
 class PostForm(ModelForm):
+    inlines = [
+        LinkInline,
+    ]
+
     class Meta:
         widgets = {
             'detail': RedactorWidget(editor_options={'lang':'en'}),
@@ -28,6 +34,7 @@ class BlogAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
     form=PostForm
 
+admin.site.register(Link)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Video, VideoAdmin)

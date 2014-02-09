@@ -1,7 +1,7 @@
 @import url('type.css');
 @import url('module.css');
 @import url('pagination.css');
-@import url('blog.css');
+@import url('post.css');
 
 .stoic-red {background-color:#E73F3F;}
 .stoic-black {background-color:#000;}

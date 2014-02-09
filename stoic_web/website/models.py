@@ -1,6 +1,7 @@
 from django.db import models
 from django_extensions.db.fields import CreationDateTimeField
 from datetime import datetime
+
 class Programme(models.Model):
     """ Which 'Programme' the video belongs to 
     """
@@ -40,6 +41,8 @@ class Post(models.Model):
     summary=models.CharField(max_length=144, blank=True)
     image = models.ImageField(upload_to="posts/%Y/%m", blank=True);
     detail=models.TextField(blank=True)
+    def __unicode__(self):
+        return self.title
 
 
 class Event(Post):
@@ -51,6 +54,7 @@ class Event(Post):
     end_date = models.DateTimeField()
     class Meta:
         ordering = ['-start_date']
+
 class Blog(Post):
     """ A Blog Post
     """

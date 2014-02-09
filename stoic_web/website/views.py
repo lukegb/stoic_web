@@ -8,12 +8,11 @@ class IndexView(TemplateView):
 class BlogListView(ListView):
     model=Blog
     template_name = 'blog_list.html'
-    context_object_name='blog_list'
+    context_object_name='post_list'
     paginate_by=5
-
 
 class EventListView(ListView):
     model=Event
     template_name = 'event_list.html'
-    context_object_name='event_list'
+    context_object_name='post_list'
     paginate_by=5
