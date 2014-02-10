@@ -1,18 +1,20 @@
 from django.contrib import admin
 from django.forms import ModelForm
-from website.models import Video, Programme, Blog, Event, Link
+from website.models import Video, Programme, Blog, Event, Link, Genre
 from suit_redactor.widgets import RedactorWidget
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
 class VideoAdmin(admin.ModelAdmin):
 	fieldsets = [
-	    (None,                {'fields': ['youtube_id','title','description']}),
-	    ('Programmes',        {'fields': ['programmes']}),
+	    (None,                {'fields': ['youtube_id','title','description', 'featured']}),
+	    ('Categories',        {'fields': ['programmes', 'genre']}),
 	]
 
 class ProgAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name', 'slug', 'featured','description']}),
     ]
+
+
 class LinkInline(admin.StackedInline):
     model=Link
 
@@ -22,7 +24,7 @@ class PostForm(ModelForm):
     ]
 
     class Meta:
-        widgets = {
+        widgets = { 
             'detail': RedactorWidget(editor_options={'lang':'en'}),
             'date': SuitSplitDateTimeWidget,
             'start_date': SuitSplitDateTimeWidget,
@@ -39,3 +41,4 @@ admin.site.register(Blog, BlogAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Video, VideoAdmin)
 admin.site.register(Programme,ProgAdmin)    
+admin.site.register(Genre)    

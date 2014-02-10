@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block main_container %}
+<a href="javascript:history.back()"><i class="fa fa-backward fa-2x pagination-active" style="vertical-align:center;"></i> Go Back</a>
+<h2>{{ object.title }}</h2>
+<div id="ytplayer"></div>
+<p>{{ object.description }}</p>
+
+
+<script>
+    // Load the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Replace the 'ytplayer' element with an <iframe> and
+        // YouTube player after the API code downloads.
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('ytplayer', {
+                height: '390',
+                width: '640',
+                videoId: '{{ object.youtube_id }}'
+            });
+        }
+    </script>
+    {% endblock %}

@@ -2,15 +2,28 @@ from django.db import models
 from django_extensions.db.fields import CreationDateTimeField
 from datetime import datetime
 
-class Programme(models.Model):
-    """ Which 'Programme' the video belongs to 
+class Category(models.Model):
+    """ Base class for categories
     """
+
     slug=models.CharField(max_length=15, unique=True)
     name=models.CharField(max_length=50)
-    description=models.TextField( blank=True)
-    featured=models.BooleanField( default=False)
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        abstract=True
+
+class Programme(Category):
+    """ Which 'Programme' the video belongs to 
+    """
+    description=models.TextField( blank=True)
+    featured=models.BooleanField( default=False)
+
+class Genre(Category):
+    """ Model for Genre, inherits Category
+    """
+    pass
 
 class Video(models.Model):
     """Video model for youtube videos
@@ -19,7 +32,9 @@ class Video(models.Model):
     youtube_id=models.CharField(max_length=20, unique=True)
     title=models.CharField(max_length=100)
     description=models.TextField(blank=True)
-    programmes=models.ManyToManyField(Programme)
+    programmes=models.ManyToManyField(Programme, blank=True)
+    genre=models.ManyToManyField(Genre,blank=True)
+    featured=models.BooleanField( default=False)
 
     def __unicode__(self):
         return self.title
@@ -27,8 +42,10 @@ class Video(models.Model):
     def thumbnail(self):
 	    return '/'.join(['http://img.youtube.com/vi',self.youtube_id,'0.jpg'])
     
+    def get_genres(self):
+        return ', '.join( list(self.genre.all()[:2]) )
     def summary(self):
-        return self.description[:144]
+        return ''.join([self.description[:50],'...'])
 
     class Meta:
         ordering = ['-uploaded']

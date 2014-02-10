@@ -2,6 +2,7 @@
 @import url('module.css');
 @import url('pagination.css');
 @import url('post.css');
+@import url('video.css');
 
 .stoic-red {background-color:#E73F3F;}
 .stoic-black {background-color:#000;}
@@ -43,7 +44,16 @@
 	background-color:black;
 }
 
+a {
+text-decoration:none;
+color: rgb(51, 51, 51);
 
+
+}
+
+a:link, a:active, a:visited, a:hover {
+    color: rgb(51, 51, 51);
+}
 
 
 /* Typography */
