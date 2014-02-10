@@ -12,7 +12,7 @@ min-height:100%;
 
 }
 
-.module a {
+.module a, .module a:link, .module a:visited, .module a:hover, .module a:active {
     color: white; text-decoration: none;
 }
 .module h2, .module h3 {
