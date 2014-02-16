@@ -13,12 +13,13 @@
 </div>
 {% endif %}
 
-{% for object in object_list %}
-{% block postlist %}
+{% for object_row in object_list %}
+<div>
+    {% for object in object_row %}
 <div class="video-mini">
     <div class="video-mini-content">
         <div>
-            <a href={% url "video_detail" object.youtube_id %}><h4>{{ object.title }}</h4></a>
+            <a href={% url "video_detail" object.youtube_id %}><h4>{{ object.title_summary }}</h4></a>
         </div>
         <a href={% url "video_detail" object.youtube_id %}><img class="video-mini-image" src="{{ object.thumbnail }}" /></a>
         <p>{{ object.summary }}</p>
@@ -29,7 +30,9 @@
         <div style="clear:both;"></div>
     </div>
 </div>
-{% endblock %}
+{% endfor %}
+        <div style="clear:both;"></div>
+</div>
 {% endfor %}
 {% else %}
 <hr/>
