@@ -38,15 +38,18 @@ class Video(models.Model):
 
     def __unicode__(self):
         return self.title
-
     def thumbnail(self):
 	    return '/'.join(['http://img.youtube.com/vi',self.youtube_id,'0.jpg'])
-    
     def get_genres(self):
         return ', '.join( list(self.genre.all()[:2]) )
     def summary(self):
         return ''.join([self.description[:50],'...'])
-
+    def title_summary(self):
+        title_truncated=self.title[:50]
+        if len(title_truncated)<len(self.title):
+            return ''.join([self.title[:50],'...'])
+        else:
+            return self.title
     class Meta:
         ordering = ['-uploaded']
 
