@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'activelink',
     'debug_toolbar',
     'suit_redactor',
+    'raven.contrib.django.raven_compat',
     'website',
 )
 
@@ -60,6 +61,10 @@ ROOT_URLCONF = 'stoic_web.urls'
 
 WSGI_APPLICATION = 'stoic_web.wsgi.application'
 
+# Set your DSN value
+RAVEN_CONFIG = {
+            'dsn':os.getenv('DJANGO_RAVEN', None),
+            }
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
