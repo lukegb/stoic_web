@@ -19,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY','t-1bm#u1gcj#y0lxnh#_a=ihe$$4bg(-(*%&=(*#q=ya)q8drl')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG',False),
-
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+if os.getenv('DJANGO_PRODUCTION',False)=='y':
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = False
+    TEMPLATE_DEBUG = False
+    ALLOWED_HOSTS = ['.stoictv.co.uk']
+else:
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = True 
+    TEMPLATE_DEBUG = True
+    ALLOWED_HOSTS = ['.stoictv.co.uk']
 
 
 # Application definition

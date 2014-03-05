@@ -3,7 +3,6 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 from website import views
 
-admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -21,3 +20,4 @@ urlpatterns = patterns('',
     url(r'^services/', TemplateView.as_view(template_name="services.html"), name='services'),
     url(r'^contact/', TemplateView.as_view(template_name="contact.html"), name='contact'),
 )
+admin.autodiscover()
