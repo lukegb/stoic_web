@@ -23,11 +23,17 @@ class Event(Post):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     
+    def date_string(self):
+        if self.start_date.date()==self.end_date.date():
+            return ''.join([self.start_date.strftime('%a %d %b %Y'),' ',self.start_date.strftime('%H:%M'),' - ',self.end_date.strftime('%H:%M')])
+        else:
+            return ''.join([self.start_date.strftime('%a %d %b %Y %H:%M'), ' - ', self.end_date.strftime('%a %d %b %Y %H:%M')])
+
     def __unicode__(self):
         if self.start_date.date()==self.end_date.date():
-            return ''.join([self.start_date.strftime('%a %d %b %Y'),' \n',self.start_date.strftime('%H:%M'),' - ',self.end_date.strftime('%H:%M')])
+            return ''.join([self.title,' --- ',self.start_date.strftime('%a %d %b %Y'),' ',self.start_date.strftime('%H:%M'),' - ',self.end_date.strftime('%H:%M')])
         else:
-            return ''.join([self.start_date.strftime('%a %d %b %Y %H:%M'), ' - \n', self.end_date.strftime('%a %d %b %Y %H:%M')])
+            return ''.join([self.title,' --- ',self.start_date.strftime('%a %d %b %Y %H:%M'), ' - ', self.end_date.strftime('%a %d %b %Y %H:%M')])
 
     class Meta:
         ordering = ['-start_date']

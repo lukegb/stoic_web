@@ -1,5 +1,6 @@
 {% extends "post_detail.html" %}
+{% load post_tags %}
 
 {% block post_detail %}
-        <p><b>date:</b> {{ post|lower }}<br/><br/><b>location:</b> {{ post.location|lower }}</p>
+<p><b>date:</b> {% date_munger post.start_date post.end_date %} <br/><br/><b>location:</b> {{ post.location|lower }}</p>
 {% endblock %}

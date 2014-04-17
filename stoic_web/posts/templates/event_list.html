@@ -1,5 +1,5 @@
 {% extends "post_list.html" %}
-
+{% load post_tags %}
 {% block postlist %}
 <div class="post-mini">
     <div class="post-mini-content">
@@ -12,7 +12,7 @@
     </div>
     <div class="post-mini-footer">
         <div class="float-right post-meta">{{ post.location }}</div>
-        <div class="float-right post-meta">{{ post.start_date }}</div>
+        <div class="float-right post-meta">{{ post.date_string }}</div>
         <div style="clear:both;"></div>
     </div>
 </div>
