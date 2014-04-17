@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'raven.contrib.django.raven_compat',
     'website',
     'posts',
+    'videos',
 )
 
 MIDDLEWARE_CLASSES = (
