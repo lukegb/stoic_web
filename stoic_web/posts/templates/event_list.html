@@ -4,15 +4,15 @@
 <div class="post-mini">
     <div class="post-mini-content">
         <div>
-            <h2>{{ post.title }}</h2>
+            <a href="{% url 'event_detail' post.id %}"><h2>{{ post.title }}</h2></a>
         </div>
         {% if post.image %}<img class="post-mini-image float-right" src="{{ post.image.url }}" />{% endif%}
         <p>{{ post.summary }}</p>
         <div style="clear:both;"></div>
     </div>
     <div class="post-mini-footer">
-        <div class="float-right post-meta">{{ post.author }}</div>
-        <div class="float-right post-meta">{{ post.date|timesince }}</div>
+        <div class="float-right post-meta">{{ post.location }}</div>
+        <div class="float-right post-meta">{{ post.start_date }}</div>
         <div style="clear:both;"></div>
     </div>
 </div>

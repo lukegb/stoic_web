@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'suit_redactor',
     'raven.contrib.django.raven_compat',
     'website',
+    'posts',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +83,7 @@ DATABASES = {
 	'PORT': os.environ.get('DJANGO_DB_PORT'),
     }
 }
-
+DEFAULT_INDEX_TABLESPACE=''
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -96,6 +97,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+#Debug toolbar
+# See http://stackoverflow.com/questions/20963856/improperlyconfigured-the-included-urlconf-project-urls-doesnt-have-any-patte
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -111,10 +115,13 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
     'django.core.context_processors.static',
 )
+TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader')
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/templates/website'
+    BASE_DIR + '/templates/website',
 )
 
 INTERNAL_IPS = ('127.0.0.1',os.getenv('DJANGO_DEV_IP', '::1'),)
+
 

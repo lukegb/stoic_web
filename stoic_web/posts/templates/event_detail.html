@@ -1,0 +1,14 @@
+{% extends "post_detail.html" %}
+
+{% block post_detail %}
+<div class="post-detail-meta pure-u-1-4">
+    <div>
+        <p><b>date:</b> {{ post|lower }}<br/><br/><b>location:</b> {{ post.location|lower }}</p>
+    </div>    
+</div>
+<div class="pure-u-3-4">
+    <div>
+        <p class="post-detail-summary"> <i><b>summary:</b> {{ post.summary|lower }}</i></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "post_detail.html" %}
+
+{% block post_detail %}
+<div class="pure-u-1-4">
+    <p>{{ post.date|timesince }} ago <br/> by: {{ post.author|lower }}</p>
+</div>
+<div class="pure-u-3-4">
+    <p class="post-detail-summary"><i>{{ post.summary }}</i></p>
+</div>
+{% endblock %}

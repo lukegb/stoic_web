@@ -59,9 +59,12 @@ a:link, a:active, a:visited, a:hover {
 /* Typography */
 
 /* Hero */
-
+.hero {
+     border-bottom:thin solid #000;
+}
 .hero h1 {
-	font-size:600%;
+    font-family: "Open Sans", Helvetica, Ariel, "sans-serif";
+    font-size:600%;
 	color:#333;
 	margin:0;
 }

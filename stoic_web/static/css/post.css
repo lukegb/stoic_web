@@ -1,6 +1,7 @@
 
 .post-mini {
-    background-color:#D9E0E0;
+/*    background-color:#D9E0E0; */
+    border-bottom:thin solid #D9E0E0;
     padding:10px;
     margin-bottom:10px;
 }
@@ -26,4 +27,18 @@
     float:left;
     margin:5px;
     display:inline;
+}
+
+.post-detail-header {
+    border-bottom:thin solid rgb(231, 63, 63);
+    border-top:thin solid rgb(231, 63, 63);
+}
+
+.post-detail-header div div {
+padding:0.5em;
+}
+
+.post-detail-meta div {
+    border-right:thin solid black;
+    font-size:90%;
 }

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_container %}
+
+<div class="post-detail">
+    <h1>{{ post.title }}</h1>
+    <div class="post-detail-header pure-g">
+        {% block post_detail %}
+        <p class="post-detail-summary"><i>{{ post.summary }}</i></p>
+        {% endblock %}
+    </div>
+    <div class="post-detail-body">
+        {% if post.image %}<img class="post-detail-image float-left" src="{{ post.image.url }}" />{% endif %}
+        <p>{{ post.detail|safe }}</p>
+    </div>
+</div>
+{% endblock %}
