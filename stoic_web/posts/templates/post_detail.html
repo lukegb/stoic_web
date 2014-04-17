@@ -5,9 +5,17 @@
 <div class="post-detail">
     <h1>{{ post.title }}</h1>
     <div class="post-detail-header pure-g">
-        {% block post_detail %}
-        <p class="post-detail-summary"><i>{{ post.summary }}</i></p>
-        {% endblock %}
+        <div class="post-detail-meta pure-u-1-4">
+            <div>
+                {% block post_detail %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="pure-u-3-4">
+            <div>
+                <p class="post-detail-summary"><i><b>summary:</b> {{ post.summary|lower }}</i></p>
+            </div>
+        </div>
     </div>
     <div class="post-detail-body">
         {% if post.image %}<img class="post-detail-image float-left" src="{{ post.image.url }}" />{% endif %}
