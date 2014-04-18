@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'south',
     'activelink',
     'debug_toolbar',
@@ -60,11 +62,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'stoic_web.urls'
 
 WSGI_APPLICATION = 'stoic_web.wsgi.application'
+SITE_ID = 1
 
 # Set your DSN value
 RAVEN_CONFIG = {
@@ -120,7 +124,7 @@ TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader',
                     'django.template.loaders.app_directories.Loader')
 
 TEMPLATE_DIRS = (
-    BASE_DIR + '/templates/website',
+    BASE_DIR + '/templates',
 )
 
 INTERNAL_IPS = ('127.0.0.1',os.getenv('DJANGO_DEV_IP', '::1'),)
