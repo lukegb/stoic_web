@@ -8,6 +8,31 @@
 .stoic-black {background-color:#000;}
 .stoic-white {background-color:#FFF}
 
+html {
+    position:relative;
+    min-height: 100%
+}
+body {
+    margin 0 0 60px; /* Space between body and footer */
+}
+/* sticky footer, many thanks to http://mystrd.at/modern-clean-css-sticky-footer/ */
+footer {
+text-align:center;
+background-color:#000;
+
+position:absolute;
+left:0;
+bottom:0;
+height:50px;
+width:100%;
+}
+footer a {
+    position:relative;
+    top:15%;
+}
+#layout {
+    margin-bottom:60px;
+}
 #menu {
 	background-color:#E73F3F;
 	color:white;
