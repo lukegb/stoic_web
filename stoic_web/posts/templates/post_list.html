@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block main_container %}
-
+<h1>{% block our_posts %}Our Posts{% endblock %}</h1>
 {% if post_list %}
 {% if is_paginated %}
 <div class="pagination">
