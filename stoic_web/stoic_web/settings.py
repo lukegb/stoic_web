@@ -23,12 +23,12 @@ if os.getenv('DJANGO_PRODUCTION',False)=='y':
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = False
     TEMPLATE_DEBUG = False
-    ALLOWED_HOSTS = ['.stoictv.co.uk']
+    ALLOWED_HOSTS = ['.imperialcollege.tv']
 else:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True 
     TEMPLATE_DEBUG = True
-    ALLOWED_HOSTS = ['.stoictv.co.uk']
+    ALLOWED_HOSTS = ['.imperialcollege.tv']
 
 
 # Application definition
