@@ -1,19 +1,22 @@
 {% extends "post_list.html" %}
 
 {% block postlist %}
-<div class="post-mini">
-    <div class="post-mini-content">
-        <div>
+<div class="post post-mini {% if post.image %}with-image{% endif %}">
+    <div class="post-content">
+        {% if post.image %}
+            <div class="post-image-container">
+                <div class="post-image-positioner">
+                    <img class="post-image" src="{{ post.image.url }}" />
+                </div>
+                <div class="post-image-cover"></div>
+            </div>
+        {% endif %}
+        <div class="post-header">
             <h2>{{ post.title }}</h2>
+            <h3 class="post-location">at <span>{{ post.location }}</span> on <span>{{ post.start_date }}</span></h3>
+            <div style="clear:both;"></div>
         </div>
-        {% if post.image %}<img class="post-mini-image float-right" src="{{ post.image.url }}" />{% endif%}
-        <p>{{ post.summary }}</p>
-        <div style="clear:both;"></div>
-    </div>
-    <div class="post-mini-footer">
-        <div class="float-right post-meta">{{ post.location }}</div>
-        <div class="float-right post-meta">{{ post.start_date }}</div>
-        <div style="clear:both;"></div>
+        {{ post.summary|safe }}
     </div>
 </div>
 {% endblock %}

@@ -57,10 +57,11 @@ class Post(models.Model):
     """ A class that is parent to Blog and Event Classes
     """
 
+    slug = models.SlugField(blank=False, null=False)
     title = models.CharField(max_length=50)
-    summary=models.CharField(max_length=144, blank=True)
+    summary = models.TextField(blank=False, null=False)
     image = models.ImageField(upload_to="posts/%Y/%m", blank=True);
-    detail=models.TextField(blank=True)
+    detail = models.TextField(blank=True, null=False)
     def __unicode__(self):
         return self.title
 
@@ -80,7 +81,7 @@ class Blog(Post):
     """
 
     date = models.DateTimeField(default=datetime.now())
-    author = models.CharField(max_length=40,blank=True, default='STOIC')
+    author = models.CharField(max_length=40,blank=True, default='ICTV')
     class Meta:
         ordering = ['-date']
 

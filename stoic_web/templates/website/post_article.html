@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main_container %}
+
+<div class="post">
+    <div class="post-content">
+        <div class="post-header {% if post.image %}with-image{% endif %}">
+            {% if post.image %}
+            <img class="post-image" src="{{ post.image.url }}" />
+            <div>
+            {% endif %}
+                <h2>{{ post.title }}</h2>
+                <h3 class="post-author">by <span>{{ post.author }}</span> {{ post.date|timesince }} ago</h3>
+            {% if post.image %}
+            </div>
+            {% endif %}
+        </div>
+        <p>{{ post.detail|safe }}</p>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+{% endblock %}

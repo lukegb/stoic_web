@@ -20,6 +20,24 @@ class BlogListView(ListView):
     context_object_name='post_list'
     paginate_by=5
 
+class BlogArticleView(DetailView):
+    model=Blog
+    template_name = 'blog_article.html'
+    context_object_name = 'post'
+
+    def get_object(self, queryset=None):
+        if queryset is None:
+            queryset = self.get_queryset()
+
+        kw = self.kwargs
+        s = queryset.get(slug=kw['slug'])
+        if str(s.date.year) != kw['year'] or \
+           str(s.date.month) != kw['month'] or \
+           str(s.date.day) != kw['day']:
+            raise self.model.DoesNotExist('date mismatch')
+
+        return s
+
 class EventListView(ListView):
     model=Event
     template_name = 'event_list.html'

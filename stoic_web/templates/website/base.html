@@ -3,7 +3,7 @@
 <!doctype html><html>
 	<head>
         {% block head %}
-        <title>STOIC - Impeirial College Union</title>
+        <title>ICTV - Imperial College Union</title>
 		{% endblock %}
 		{% block css %}
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
@@ -15,52 +15,33 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="pure-g-r" id="layout">
-			<div class="pure-u-5-24" id="menu">
+		<div id="layout">
+			<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+			<div id="menu">
 				<div class="pure-menu pure-menu-open">
-					<a href="#" class="pure-menu-heading">STOIC</a>
-				</div>
-				<div class="pure-g">
-					<div class="pure-u-1-2">
-						<div class="pure-menu pure-menu-open">
-							<a href="#" class="pure-menu-heading"></a>
-							<ul>
-								<li><a class="{% ifactive "home" %}nav_active_link{% endifactive %}" href="{%  url "home" %}">Home</a></li>
-								<li><a class="{% ifactive "live" %}nav_active_link{% endifactive %}" href="{% url "live" %}">STOIC Live</a></li>
-                                <li><a class="{% ifcontains "video_index" %}nav_active_link{% endifcontains %}" href="{% url "video_index" %}">Videos</a></li>
-                                <li><a class="{% ifactive "event_index" %}nav_active_link{% endifactive %}" href="{% url "event_index" %}">Events</a></li>
-                                <li><a class="{% ifactive "blog_index" %}nav_active_link{% endifactive %}" href="{% url "blog_index" %}">Blog</a></li>
-                                <li><a class="{% ifactive "services" %}nav_active_link{% endifactive %}" href="{%  url "services" %}">Services/Hire</a></li>
-                                <li><a class="{% ifactive "tech" %}nav_active_link{% endifactive %}" href="{%  url "tech" %}">Tech Team</a></li>
-                                <li><a class="{% ifactive "contact" %}nav_active_link{% endifactive %}" href="{%  url "contact" %}">Contact Us</a></li>
-								<li><a href="https://www.imperialcollegeunion.org/shop/club-society-project-products/stoic-tv-products">Join Us</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="pure-u-1-2">
-						<div class="pure-menu pure-menu-open">
-							{% block second_level_menu %}{% endblock %}
-						</div>	
-					</div>
+					<a href="#" class="pure-menu-heading">ICTV</a>
+					<ul>
+						<li><a class="{% ifactive "home" %}nav_active_link{% endifactive %}" href="{%  url "home" %}">Home</a></li>
+						<li><a class="{% ifstartswith "live" %}nav_active_link{% endifstartswith %}" href="{% url "live" %}">ICTV Live</a></li>
+                       				<li><a class="{% ifstartswith "video_index" %}nav_active_link{% endifstartswith %}" href="{% url "video_index" %}">Videos</a></li>
+                       			 	<li><a class="{% ifstartswith "event_index" %}nav_active_link{% endifstartswith %}" href="{% url "event_index" %}">Events</a></li>
+                       			 	<li><a class="{% ifstartswith "blog_index" %}nav_active_link{% endifstartswith %}" href="{% url "blog_index" %}">Blog</a></li>
+                       			 	<li><a class="{% ifstartswith "services" %}nav_active_link{% endifstartswith %}" href="{%  url "services" %}">Services/Hire</a></li>
+                       			 	<li><a class="{% ifstartswith "tech" %}nav_active_link{% endifstartswith %}" href="{%  url "tech" %}">Tech Team</a></li>
+                       			 	<li><a class="{% ifstartswith "contact" %}nav_active_link{% endifstartswith %}" href="{%  url "contact" %}">Contact Us</a></li>
+						<li><a href="https://www.imperialcollegeunion.org/shop/club-society-project-products/stoic-tv-products" target="union">Join Us</a></li>
+					</ul>
 				</div>
 			</div>
-			<div class="pure-u-5-24" id="placeholder"></div>
-			<div class="pure-u-19-24" id="main">
-				<div class="pure-g">
-
-					<div class="pure-u-1-8"></div>
-
-                    <div class="pure-u-3-4" id="main">
-                        <div class="hero">
-                            <h1>STOIC</h1>
-                             <h2>The Student Television Station of Imperial College</h2>
-                         </div>
-                         {% block main_container %} {% endblock %}
-					</div>
-					<div class="pure-u-1-8"></div>
+			<div id="main">
+				<div class="header">
+					<h1>IC<strong>TV</strong></h1>
+					<h2>The Student Television Station of Imperial College</h2>
+				</div>
+				<div class="content">
+					{% block main_container %} {% endblock %}
 				</div>
 			</div>
-
 		</div>
 	</body>
 </html>

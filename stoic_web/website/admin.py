@@ -26,6 +26,7 @@ class PostForm(ModelForm):
     class Meta:
         widgets = { 
             'detail': RedactorWidget(editor_options={'lang':'en'}),
+            'summary': RedactorWidget(editor_options={'lang':'en'}),
             'date': SuitSplitDateTimeWidget,
             'start_date': SuitSplitDateTimeWidget,
             'end_date': SuitSplitDateTimeWidget,
@@ -33,8 +34,11 @@ class PostForm(ModelForm):
 
 class BlogAdmin(admin.ModelAdmin):
     form=PostForm
+    prepopulated_fields = {'slug': ('title',)}
+
 class EventAdmin(admin.ModelAdmin):
     form=PostForm
+    prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Link)
 admin.site.register(Blog, BlogAdmin)
