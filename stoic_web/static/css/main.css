@@ -8,6 +8,16 @@
 .stoic-black {background-color:#000;}
 .stoic-white {background-color:#FFF}
 
+.module-link {
+	position: relative;
+}
+.module-link > a {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
 #menu {
 	background-color:#E73F3F;
 	color:white;
