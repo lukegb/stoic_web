@@ -45,6 +45,30 @@ body {
 	top: 0;
 	bottom: 0;
 	margin-left: -160px;
+	width: 160px;
+	z-index: 10000;
+}
+#menuLink {
+	display: inline-block;
+	background-color: #E73F3F;
+	color: white;
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	line-height: 2em;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+}
+#menu, #menuLink {
+	transition: all 0.2s ease-out;
+}
+#menu.active {
+	left: 160px;
+}
+#menuLink.active {
+	left: 160px;
 }
 #menu .pure-menu {
 	border:inherit;
@@ -197,7 +221,6 @@ a:link, a:active, a:visited, a:hover {
 	height: auto;
 }
 
-
 /* Typography */
 
 /* Hero */
@@ -215,5 +238,8 @@ a:link, a:active, a:visited, a:hover {
 	}
 	#menu {
 		left: 160px;
+	}
+	#menuLink {
+		display: none;
 	}
 }

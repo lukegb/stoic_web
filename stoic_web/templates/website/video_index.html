@@ -2,43 +2,43 @@
 
 {% block main_container %}
 
-{% if object_list %}
-{% if is_paginated %}
-<div class="pagination">
-    <span class="page-links">
-        <a href="{% if page_obj.has_previous %}{{ request.path }}?page={{ page_obj.previous_page_number }}{% else %}#{% endif %}"><i class="fa fa-backward fa-2x {% if page_obj.has_previous %}pagination-active{% else %}pagination-dead{% endif %}"></i></a>
-        <a href="{% if page_obj.has_next %}{{ request.path }}?page={{ page_obj.next_page_number }}{% else %}#{% endif %}"><i class="fa fa-forward fa-2x {% if page_obj.has_next %}pagination-active{% else %}pagination-dead{% endif %}"></i></a>
-        <br/><span class="page-current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-    </span>
-</div>
-{% endif %}
+<h1>Our Videos</h1>
 
-{% for object_row in object_list %}
-<div>
-    {% for object in object_row %}
-<div class="video-mini">
-    <div class="video-mini-content">
-        <div>
-            <a href={% url "video_detail" object.youtube_id %}><h4>{{ object.title_summary }}</h4></a>
+{% if object_list %}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                <a href="{% if page_obj.has_previous %}{{ request.path }}?page={{ page_obj.previous_page_number }}{% else %}#{% endif %}"><i class="fa fa-backward fa-2x {% if page_obj.has_previous %}pagination-active{% else %}pagination-dead{% endif %}"></i></a>
+                <a href="{% if page_obj.has_next %}{{ request.path }}?page={{ page_obj.next_page_number }}{% else %}#{% endif %}"><i class="fa fa-forward fa-2x {% if page_obj.has_next %}pagination-active{% else %}pagination-dead{% endif %}"></i></a>
+                <br/><span class="page-current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            </span>
         </div>
-        <a href={% url "video_detail" object.youtube_id %}><img class="video-mini-image" src="{{ object.thumbnail }}" /></a>
-        <p>{{ object.summary }}</p>
+    {% endif %}
+    
+    <div class="pure-g-r">
+        {% for object in object_list %}
+        <div class="video-mini pure-u-1-3">
+            <a href={% url "video_detail" object.youtube_id %}>
+                <div class="video-mini-content" style="background-image: url({{ object.thumbnail }})">
+                    <div>
+                        <h4>{{ object.title_summary }}</h4>
+                        <span class="video-meta">{{ object.uploaded }}</span>
+                    </div>
+                </div>
+<!--                <div class="post-mini-footer">
+                    <div class="float-right post-meta">{{ object.get_genres }}</div>
+                    <div class="float-right post-meta">{{ object.uploaded }}</div>
+                    <div style="clear:both;"></div>
+                </div>-->
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    <div class="post-mini-footer">
-        <div class="float-right post-meta">{{ object.get_genres }}</div>
-        <div class="float-right post-meta">{{ object.uploaded }}</div>
-        <div style="clear:both;"></div>
+    {% else %}
+    <hr/>
+    <div class="hero">
+        <h1>Whoops!</h1>
+        <h2>No posts yet!</h2>
     </div>
-</div>
-{% endfor %}
-        <div style="clear:both;"></div>
-</div>
-{% endfor %}
-{% else %}
-<hr/>
-<div class="hero">
-    <h1>Whoops!</h1>
-    <h2>No posts yet!</h2>
-</div>
 {% endif %}
 {% endblock %}

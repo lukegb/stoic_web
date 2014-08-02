@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
+from django.utils import timezone
 from website.models import Blog, Event, Programme, Video
 
 def chunks(l, n):
@@ -13,6 +14,21 @@ def chunks(l, n):
 
 class IndexView(TemplateView):
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        kwargs = super(IndexView, self).get_context_data(**kwargs)
+
+        kwargs['latest_blog'] = Blog.objects.count() and Blog.objects.latest()
+
+        kwargs['latest_show'] = Video.objects.count() and Video.objects.latest()
+
+        evs = Event.objects.filter(start_date__gt=timezone.now()).order_by('start_date')
+        if evs:
+            kwargs['next_event'] = evs[0]
+
+        kwargs['live_streaming'] = False
+
+        return kwargs
 
 class BlogListView(ListView):
     model=Blog
@@ -56,6 +72,7 @@ class VideoListView(ListView):
 
 class VideoGenreList(VideoListView):
     pass
+
 class VideoIndex(ListView):
     model=Video
     template_name='video_index.html'
@@ -66,10 +83,9 @@ class VideoIndex(ListView):
          context = super(VideoIndex, self).get_context_data(**kwargs)
          # Add QuerySet of several featured videos
          # TODO ADD cached variable to enable dynamic changes to number of videos in admin
-         featured=list( Video.objects.filter(featured=True) )
-         random.shuffle(featured)
-         context['object_list']=chunks(context['object_list'], 4)
-         context['feat_videos'] = featured[:5]
+         #featured=list( Video.objects.filter(featured=True) )
+         #random.shuffle(featured)
+         #context['feat_videos'] = featured[:5]
          return context
 
 class VideoDetailView( DetailView):

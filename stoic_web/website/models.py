@@ -39,7 +39,7 @@ class Video(models.Model):
     def __unicode__(self):
         return self.title
     def thumbnail(self):
-	    return '/'.join(['http://img.youtube.com/vi',self.youtube_id,'0.jpg'])
+	    return '/'.join(['http://img.youtube.com/vi',self.youtube_id,'maxresdefault.jpg'])
     def get_genres(self):
         return ', '.join( list(self.genre.all()[:2]) )
     def summary(self):
@@ -52,6 +52,7 @@ class Video(models.Model):
             return self.title
     class Meta:
         ordering = ['-uploaded']
+        get_latest_by = 'uploaded'
 
 class Post(models.Model):
     """ A class that is parent to Blog and Event Classes
@@ -84,6 +85,7 @@ class Blog(Post):
     author = models.CharField(max_length=40,blank=True, default='ICTV')
     class Meta:
         ordering = ['-date']
+        get_latest_by = 'date'
 
 class Link(models.Model):
     """ Links for post models

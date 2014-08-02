@@ -2,19 +2,25 @@
 
 {% block main_container %}
 <div class="pure-g-r">
+{% if live_streaming %}
     <div class="pure-u-1-2 module module-link module-red">
         <a href="{%  url "live" %}">
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-video-camera fa-5x"></i></div>
                 <h3>Watch our live stream</h3>
+		<span><br><strong>Now streaming:</strong> {{ live_streaming }}</span>
             </div>
         </a>
     </div>
-    <div class="pure-u-1-2 module module-link module-blue">
+{% endif %}
+    <div class="pure-u-1{% if live_streaming %}-2{% endif %} module module-link module-blue">
         <a href="{%  url "video_index" %}">
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-desktop fa-5x"></i></div>
                 <h3>Watch our shows</h3>
+{% if latest_show %}
+		<span><br><strong>Latest upload:</strong> {{ latest_show.title }}</span>
+{% endif %}
             </div>
         </a>
     </div>
@@ -23,6 +29,9 @@
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-book fa-5x"></i></div>
                 <h3>Read our blog</h3>
+{% if latest_blog %}
+		<span><br><strong>Latest post:</strong> {{ latest_blog.title }}</span>
+{% endif %}
             </div>
         </a>
     </div>
@@ -31,6 +40,9 @@
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-calendar fa-5x"></i></div>
                 <h3>Check out our events</h3>
+{% if next_event %}
+		<span><br><strong>Coming up:</strong> {{ next_event.title }}</span>
+{% endif %}
             </div>
         </a>
     </div>
@@ -39,6 +51,7 @@
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-group fa-5x"></i></div>
                 <h3>Join us!</h3>
+		<span><br><strong>For just</strong> £10</span>
             </div>
         </a>
     </div>

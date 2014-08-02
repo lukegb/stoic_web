@@ -1,5 +1,9 @@
 {% extends "post_list.html" %}
 
+{% block header %}
+<h1>ICTV Thoughts</h1>
+{% endblock %}
+
 {% block postlist %}
 <a href="{% url 'blog_article' year=post.date.year month=post.date.month day=post.date.day slug=post.slug %}">
     <div class="post post-mini {% if post.image %}with-image{% endif %}">

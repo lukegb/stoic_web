@@ -1,5 +1,9 @@
 {% extends "post_list.html" %}
 
+{% block header %}
+<h1>Events</h1>
+{% endblock %}
+
 {% block postlist %}
 <div class="post post-mini {% if post.image %}with-image{% endif %}">
     <div class="post-content">
