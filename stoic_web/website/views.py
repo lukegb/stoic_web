@@ -1,10 +1,11 @@
 import random
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
-from website.models import Blog, Event, Programme, Video
+from website.models import Blog, Event, Programme, Video, QuestionsLive
+from website.forms import QLForm
 
 def chunks(l, n):
     """ Yield successive n-sized chunks from l.
@@ -95,3 +96,7 @@ class VideoDetailView( DetailView):
     slug_field='youtube_id'
 
 
+class QuestionsLiveCreateView(CreateView):
+    model = QuestionsLive
+    template_name = 'questions_live.html'
+    form_class = QLForm

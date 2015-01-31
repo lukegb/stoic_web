@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block main_container %}
+<div class="content">
+<h1>Imperial Questions Live</h1>
+    {{ form.non_field_errors }}
+    <form class="pure-form pure-form-aligned" action="" method="post">{% csrf_token %}
+    <fieldset>
+        <div class="pure-control-group">
+            {{ form.subject.errors }}
+            <label for="{{ form.name.id_for_label }}">Name</label>
+    {#        <input id="name" type="text" placeholder="Name">#}
+            {{ form.name }}
+        </div>
+
+        <div class="pure-control-group">
+            {{ form.subject.errors }}
+            <label for="{{ form.email.id_for_label }}">Email Address</label>
+            {{ form.email }}
+        </div>
+
+        <div class="pure-control-group">
+            <label for="{{ form.quesiton.id_for_label }}">Your Question</label>
+            {{ form.question }}
+        </div>
+        <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </div>
+    </fieldset>
+    </form>
+</div>
+
+
+{% endblock %}
