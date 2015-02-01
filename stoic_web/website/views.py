@@ -4,6 +4,9 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
+
+from vanilla import CreateView
+
 from website.models import Blog, Event, Programme, Video, QuestionsLive
 from website.forms import QLForm
 
@@ -96,7 +99,35 @@ class VideoDetailView( DetailView):
     slug_field='youtube_id'
 
 
+# class QuestionsLiveCreateView(CreateView):
+#     model = QuestionsLive
+#     template_name = 'questions_live.html'
+#     form_class = QLForm
+
 class QuestionsLiveCreateView(CreateView):
+
     model = QuestionsLive
     template_name = 'questions_live.html'
     form_class = QLForm
+
+    # def get_form_kwargs(self):
+    #     kwargs = super(QuestionsLiveCreateView, self).get_form_kwargs()
+    #     kwargs['ip'] = self.request.META['HTTP_X_FORWARDED_FOR']
+    #     kwargs['user_agent'] = self.request.META['HTTP_USER_AGENT']
+    #     # print kwargs
+    #     return kwargs
+
+    def get_form(self, data=None, files=None, **kwargs):
+        if data:
+            data_cp = data.copy()
+        else:
+            data_cp = {}
+
+        data_cp['ip'] = self.request.META['REMOTE_ADDR']
+        data_cp['user_agent'] = self.request.META['HTTP_USER_AGENT']
+
+        return QLForm(data_cp, files, **kwargs)
+
+    def form_valid(self, form):
+        form.save()
+        return render(self.request, self.template_name,  {'complete': True})

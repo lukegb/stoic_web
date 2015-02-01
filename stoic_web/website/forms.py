@@ -7,7 +7,7 @@ class QLForm(forms.ModelForm):
     class Meta:
         model = QuestionsLive
 
-        fields = ['name', 'email', 'question']
+        fields = ['name', 'email', 'question', 'be_there', 'ip', 'user_agent']
 
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name'}),

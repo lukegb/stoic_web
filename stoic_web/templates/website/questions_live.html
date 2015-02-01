@@ -6,32 +6,42 @@
 {% block main_container %}
 <div class="content">
 <h1>Imperial Questions Live</h1>
+
+    {% if complete %}
+        YAY!
+    {% else %}
     {{ form.non_field_errors }}
     <form class="pure-form pure-form-aligned" action="" method="post">{% csrf_token %}
     <fieldset>
         <div class="pure-control-group">
-            {{ form.subject.errors }}
+            {{ form.name.errors }}
             <label for="{{ form.name.id_for_label }}">Name</label>
     {#        <input id="name" type="text" placeholder="Name">#}
             {{ form.name }}
         </div>
 
         <div class="pure-control-group">
-            {{ form.subject.errors }}
+            {{ form.email.errors }}
             <label for="{{ form.email.id_for_label }}">Email Address</label>
             {{ form.email }}
         </div>
 
         <div class="pure-control-group">
-            <label for="{{ form.quesiton.id_for_label }}">Your Question</label>
+            {{ form.question.errors }}
+            <label for="{{ form.question.id_for_label }}">Your Question</label>
             {{ form.question }}
         </div>
         <div class="pure-controls">
-            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+            <label for="{{ form.be_there.id_for_label }}" class="pure-checkbox">
+                {{ form.be_there }} Want to be in the audience?
+            </label>
+            <button type="submit" value="Submit" class="pure-button pure-button-primary">Submit</button>
         </div>
     </fieldset>
     </form>
+    {% endif %}
 </div>
+
 
 
 {% endblock %}
