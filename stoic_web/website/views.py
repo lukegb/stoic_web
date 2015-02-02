@@ -4,6 +4,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 from vanilla import CreateView
 
@@ -110,24 +111,20 @@ class QuestionsLiveCreateView(CreateView):
     template_name = 'questions_live.html'
     form_class = QLForm
 
-    # def get_form_kwargs(self):
-    #     kwargs = super(QuestionsLiveCreateView, self).get_form_kwargs()
-    #     kwargs['ip'] = self.request.META['HTTP_X_FORWARDED_FOR']
-    #     kwargs['user_agent'] = self.request.META['HTTP_USER_AGENT']
-    #     # print kwargs
-    #     return kwargs
-
-    def get_form(self, data=None, files=None, **kwargs):
-        if data:
-            data_cp = data.copy()
-        else:
-            data_cp = {}
-
-        data_cp['ip'] = self.request.META['REMOTE_ADDR']
-        data_cp['user_agent'] = self.request.META['HTTP_USER_AGENT']
-
-        return QLForm(data_cp, files, **kwargs)
 
     def form_valid(self, form):
-        form.save()
-        return render(self.request, self.template_name,  {'complete': True})
+
+        new_data = {}
+        for key, val in form.cleaned_data.iteritems():
+            new_data[key] = val
+
+        new_data['ip'] = self.request.META['REMOTE_ADDR']
+        new_data['user_agent'] = self.request.META['HTTP_USER_AGENT']
+
+        new_form = QLForm(data=new_data)
+
+        if new_form.is_valid():
+            new_form.save()
+            return render(self.request, self.template_name,  {'complete': True})
+        else:
+            raise ValidationError('Something went wrong submitting form')

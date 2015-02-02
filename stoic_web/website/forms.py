@@ -3,6 +3,11 @@ from django import forms
 from .models import QuestionsLive
 
 class QLForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(QLForm, self).__init__(*args, **kwargs)
+
+        self.fields['ip'].required = False
+        self.fields['user_agent'].required = False
 
     class Meta:
         model = QuestionsLive
