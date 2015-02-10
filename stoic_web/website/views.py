@@ -4,7 +4,12 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
-from website.models import Blog, Event, Programme, Video
+from django.core.exceptions import ValidationError
+
+from vanilla import CreateView
+
+from website.models import Blog, Event, Programme, Video, QuestionsLive
+from website.forms import QLForm
 
 def chunks(l, n):
     """ Yield successive n-sized chunks from l.
@@ -95,3 +100,26 @@ class VideoDetailView( DetailView):
     slug_field='youtube_id'
 
 
+class QuestionsLiveCreateView(CreateView):
+
+    model = QuestionsLive
+    template_name = 'questions_live_standalone.html'
+    form_class = QLForm
+
+
+    def form_valid(self, form):
+
+        new_data = {}
+        for key, val in form.cleaned_data.iteritems():
+            new_data[key] = val
+
+        new_data['ip'] = self.request.META['REMOTE_ADDR']
+        new_data['user_agent'] = self.request.META['HTTP_USER_AGENT']
+
+        new_form = QLForm(data=new_data)
+
+        if new_form.is_valid():
+            new_form.save()
+            return render(self.request, self.template_name,  {'complete': True})
+        else:
+            raise ValidationError('Something went wrong submitting form')

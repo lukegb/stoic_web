@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Imperial Questions Live</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/iql.css' %}" rel="stylesheet">
+    <!-- <link href="css/grayscale.css" rel="stylesheet"> -->
+    <!-- <link href="css/iql.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- JS -->
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>#}
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+ <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-1 pushdown">
+                <div class="jumbotron jumbo-custom">
+                    <div class="">
+                        <h1 style="font-size: 58px;">Imperial Questions Live</h1>
+                        <h2>Time to put your questions forward</h2>
+
+                        <h4>
+                        <ul>
+                            <li>Ever wanted to ask the Union a question?</li>
+                            <li>Got a problem even Sam can't solve?</li>
+                            <li>Does College take students' views seriously?</li>
+                        </ul>
+                        </h4>
+                        <p>On Wednesday 18 February, 7pm, five panellists will be live on <a href="http://imperialcollege.tv">ICTV</a> with a studio audience, answering your questions. Submit here, or use #IQL on Twitter. The show will be streamed live.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 pushdown">
+                <div class="iql-form">
+                    {% if complete %}
+                        <h3>Thanks!</h3>
+                        <p>We got your question. Feel free to <a href="{{ request.get_full_path }}">submit more</a>!</p>
+                        <p>If you indicated you would be interested in being in the audience, we will be in touch (please note there may not be space for everyone who indicates an interest).</p>
+                        <p>Feel free to email <a href="mailto:ictv@imperial.ac.uk">ictv@imperial.ac.uk</a> if you have any questions.</p>
+                    {% else %}
+                        <h3>Submit a question</h3>
+                        <form action="" method="post" class="">{% csrf_token %}
+                          {{ form.non_field_errors }}
+
+                          <div class="form-group">
+                            {{ form.name.errors }}
+                            <label for="{{ form.name.id_for_label }}">Name</label>
+                            <input name="name" type="text" class="form-control" id="{{ form.name.id_for_label }}" placeholder="Enter name">
+                          </div>
+
+                          <div class="form-group">
+                            {{ form.email.errors }}
+                            <label for="{{ form.email.id_for_label }}">Email address</label>
+                            <input name="email" type="email" class="form-control" id="{{ form.email.id_for_label }}" placeholder="Enter email">
+                          </div>
+
+                          <div class="form-group">
+                              {{ form.question.errors }}
+                              <label for="{{ form.question.id_for_label }}">Your question</label>
+                              <textarea name="question" class="form-control" id="{{ form.question.id_for_label }}" placeholder="Your question" rows="3"></textarea>
+                          </div>
+
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox"> Want to be in the audience?
+                            </label>
+                          </div>
+                          <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+                    <div class="col-md-2 col-md-offset-1 person-container">
+                        <div class="person text-center person-text person">
+                            <img src="{% static 'misc/iql/wheeler.jpeg' %}" alt="Tom Wheeler" class="img-circle img-responsive center-block person-pic">
+                            <h3>Tom Wheeler</h3>
+                            <p>Tom is Imperial College Union's President. Prior to this, he was a Physics Undergraduate.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 person-container">
+                        <div class="person text-center person-text person">
+                           <img src="{% static 'misc/iql/bridge.jpg' %}" alt="Bridge Duncombe" class="img-circle img-responsive center-block person-pic">
+                           <h3>Bridge Duncombe</h3>
+                            <p>Bridge is the first and current full time Directory of Undergraduate Studies in the Department of Chemistry.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 person-container">
+                        <div class="person text-center person-text person">
+                            <img src="{% static 'misc/iql/skett.jpg' %}" alt="Philippa Skett" class="img-circle img-responsive center-block person-pic">
+                            <h3>Philippa Skett</h3>
+                            <p>Philippa is the Editor-in-Chief of <em>Felix</em>, Imperial's Student Newspaper. Philippa graduated from Biology and Science Communications here at Imperial.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 person-container">
+                        <div class="person text-center person-text person">
+                            <img src="{% static 'misc/iql/debra.jpg' %}" alt="Debra Humphris" class="img-circle img-responsive center-block person-pic">
+                            <h3>Debra Humphris</h3>
+                            <p>Debra is Imperial College's Vice Provost (Education), the most Senior figure solely responsible for education and students.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 person-container">
+                        <div class="person text-center person-text person">
+                            <img src="{% static 'misc/iql/benton.jpg' %}" alt="Oli Benton" class="img-circle img-responsive center-block person-pic">
+                            <h3>Oli Benton</h3>
+                            <p>Oli is Chair of the Athletics Clubs Committee; as a student volunteer he oversees and administers over 45 sports clubs. He is in his final year of Chemistry.</p>
+
+                        </div>
+                     </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>

@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^tech/', TemplateView.as_view(template_name="tech.html"), name='tech'),
     url(r'^services/', TemplateView.as_view(template_name="services.html"), name='services'),
     url(r'^contact/', TemplateView.as_view(template_name="contact.html"), name='contact'),
+    url(r'^questions-live/', views.QuestionsLiveCreateView.as_view(), name='questions_live'),
 )
