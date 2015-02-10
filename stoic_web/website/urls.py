@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 from website import views
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='home'),
@@ -9,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^events/$', views.EventListView.as_view(), name='event_index'),
     url(r'^videos/$', views.VideoIndex.as_view(), name='video_index'),
     url(r'^videos/(?P<slug>[-_\w]+)/$', views.VideoDetailView.as_view(), name='video_detail'),
+    url(r'^live/embed/', xframe_options_exempt(TemplateView.as_view(template_name="liveembed.html")), name='liveembed'),
     url(r'^live/', TemplateView.as_view(template_name="live.html"), name='live'),
     url(r'^tech/', TemplateView.as_view(template_name="tech.html"), name='tech'),
     url(r'^services/', TemplateView.as_view(template_name="services.html"), name='services'),

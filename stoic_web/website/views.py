@@ -31,7 +31,8 @@ class IndexView(TemplateView):
         if evs:
             kwargs['next_event'] = evs[0]
 
-        kwargs['live_streaming'] = False
+        # This is an unacceptable way of setting this...
+        kwargs['live_streaming'] = None #'Live from (near) The Albert Hall: Immortal Machinery'
 
         return kwargs
 
