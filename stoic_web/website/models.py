@@ -107,3 +107,12 @@ class Link(models.Model):
     kind=models.CharField(max_length=2, choices=KIND_CHOICES, default=WEBSITE)
     post=models.ForeignKey(Post, related_name="post")
 
+class QuestionsLive(models.Model):
+    """ Form for IQL
+    """
+    email = models.EmailField(blank=True)
+    name = models.CharField(max_length=100)
+    question = models.TextField()
+    be_there = models.BooleanField(default=False)
+    ip = models.IPAddressField()
+    user_agent = models.TextField()

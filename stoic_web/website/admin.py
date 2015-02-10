@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelForm
-from website.models import Video, Programme, Blog, Event, Link, Genre
+from website.models import Video, Programme, Blog, Event, Link, Genre, QuestionsLive
 from suit_redactor.widgets import RedactorWidget
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
 class VideoAdmin(admin.ModelAdmin):
@@ -45,4 +45,5 @@ admin.site.register(Blog, BlogAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Video, VideoAdmin)
 admin.site.register(Programme,ProgAdmin)    
-admin.site.register(Genre)    
+admin.site.register(Genre)
+admin.site.register(QuestionsLive)
