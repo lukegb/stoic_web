@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						<li><a class="{% ifactive "home" %}nav_active_link{% endifactive %}" href="{%  url "home" %}">Home</a></li>
 						<li><a class="{% ifstartswith "live" %}nav_active_link{% endifstartswith %}" href="{% url "live" %}">ICTV Live</a></li>
                        				<li><a class="{% ifstartswith "video_index" %}nav_active_link{% endifstartswith %}" href="{% url "video_index" %}">Videos</a></li>
-                                    <li><a class="{% ifstartswith "event_index" %}nav_active_link{% endifstartswith %}" href="{% url "questions_live" %}">Questions Live!</a></li>
+                       				<li><a href="{% url "questions_live" %}">Questions Live!</a></li>
                        			 	<li><a class="{% ifstartswith "event_index" %}nav_active_link{% endifstartswith %}" href="{% url "event_index" %}">Events</a></li>
                        			 	<li><a class="{% ifstartswith "blog_index" %}nav_active_link{% endifstartswith %}" href="{% url "blog_index" %}">Blog</a></li>
                        			 	<li><a class="{% ifstartswith "services" %}nav_active_link{% endifstartswith %}" href="{%  url "services" %}">Services/Hire</a></li>

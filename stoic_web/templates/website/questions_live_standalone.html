@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ STATIC_URL }}/css/iql.css" rel="stylesheet">
+    <link href="{% static 'css/iql.css' %}" rel="stylesheet">
     <!-- <link href="css/grayscale.css" rel="stylesheet"> -->
     <!-- <link href="css/iql.css" rel="stylesheet"> -->
 
@@ -106,7 +108,7 @@
 
                     <div class="col-md-2 col-md-offset-1 person-container">
                         <div class="person text-center person-text person">
-                            <img src="{{ STATIC_URL }}misc/iql/wheeler.jpeg" alt="Tom Wheeler" class="img-circle img-responsive center-block person-pic">
+                            <img src="{% static 'misc/iql/wheeler.jpeg' %}" alt="Tom Wheeler" class="img-circle img-responsive center-block person-pic">
                             <h3>Tom Wheeler</h3>
                             <p>Tom is Imperial College Union's President. Prior to this, he was a Physics Undergraduate.</p>
                         </div>
@@ -114,7 +116,7 @@
 
                     <div class="col-md-2 person-container">
                         <div class="person text-center person-text person">
-                           <img src="{{ STATIC_URL }}misc/iql/bridge.jpg" alt="Bridge Duncombe" class="img-circle img-responsive center-block person-pic">
+                           <img src="{% static 'misc/iql/bridge.jpg' %}" alt="Bridge Duncombe" class="img-circle img-responsive center-block person-pic">
                            <h3>Bridge Duncombe</h3>
                             <p>Bridge is the first and current full time Directory of Undergraduate Studies in the Department of Chemistry.</p>
                         </div>
@@ -122,7 +124,7 @@
 
                     <div class="col-md-2 person-container">
                         <div class="person text-center person-text person">
-                            <img src="{{ STATIC_URL }}misc/iql/skett.jpg" alt="Philippa Skett" class="img-circle img-responsive center-block person-pic">
+                            <img src="{% static 'misc/iql/skett.jpg' %}" alt="Philippa Skett" class="img-circle img-responsive center-block person-pic">
                             <h3>Philippa Skett</h3>
                             <p>Philippa is the Editor-in-Chief of <em>Felix</em>, Imperial's Student Newspaper. Philippa graduated from Biology and Science Communications here at Imperial.</p>
                         </div>
@@ -130,7 +132,7 @@
 
                     <div class="col-md-2 person-container">
                         <div class="person text-center person-text person">
-                            <img src="{{ STATIC_URL }}misc/iql/debra.jpg" alt="Debra Humphris" class="img-circle img-responsive center-block person-pic">
+                            <img src="{% static 'misc/iql/debra.jpg' %}" alt="Debra Humphris" class="img-circle img-responsive center-block person-pic">
                             <h3>Debra Humphris</h3>
                             <p>Debra is Imperial College's Vice Provost (Education), the most Senior figure solely responsible for education and students.</p>
                         </div>
@@ -138,7 +140,7 @@
 
                     <div class="col-md-2 person-container">
                         <div class="person text-center person-text person">
-                            <img src="{{ STATIC_URL }}misc/iql/benton.jpg" alt="Oli Benton" class="img-circle img-responsive center-block person-pic">
+                            <img src="{% static 'misc/iql/benton.jpg' %}" alt="Oli Benton" class="img-circle img-responsive center-block person-pic">
                             <h3>Oli Benton</h3>
                             <p>Oli is Chair of the Athletics Clubs Committee; as a student volunteer he oversees and administers over 45 sports clubs. He is in his final year of Chemistry.</p>
 

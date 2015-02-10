@@ -1,6 +1,6 @@
 import random
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
@@ -99,11 +99,6 @@ class VideoDetailView( DetailView):
 
     slug_field='youtube_id'
 
-
-# class QuestionsLiveCreateView(CreateView):
-#     model = QuestionsLive
-#     template_name = 'questions_live.html'
-#     form_class = QLForm
 
 class QuestionsLiveCreateView(CreateView):
 
