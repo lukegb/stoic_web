@@ -11,9 +11,12 @@ class Migration(SchemaMigration):
         # Adding model 'QuestionsLive'
         db.create_table(u'website_questionslive', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
+            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75, blank=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
             ('question', self.gf('django.db.models.fields.TextField')()),
+            ('be_there', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('ip', self.gf('django.db.models.fields.IPAddressField')(max_length=15)),
+            ('user_agent', self.gf('django.db.models.fields.TextField')()),
         ))
         db.send_create_signal(u'website', ['QuestionsLive'])
 
@@ -27,7 +30,7 @@ class Migration(SchemaMigration):
         u'website.blog': {
             'Meta': {'ordering': "['-date']", 'object_name': 'Blog', '_ormbases': [u'website.Post']},
             'author': ('django.db.models.fields.CharField', [], {'default': "'ICTV'", 'max_length': '40', 'blank': 'True'}),
-            'date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2015, 1, 31, 0, 0)'}),
+            'date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime(2015, 2, 10, 0, 0)'}),
             u'post_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['website.Post']", 'unique': 'True', 'primary_key': 'True'})
         },
         u'website.event': {
@@ -70,10 +73,13 @@ class Migration(SchemaMigration):
         },
         u'website.questionslive': {
             'Meta': {'object_name': 'QuestionsLive'},
-            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75'}),
+            'be_there': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'ip': ('django.db.models.fields.IPAddressField', [], {'max_length': '15'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            'question': ('django.db.models.fields.TextField', [], {})
+            'question': ('django.db.models.fields.TextField', [], {}),
+            'user_agent': ('django.db.models.fields.TextField', [], {})
         },
         u'website.video': {
             'Meta': {'ordering': "['-uploaded']", 'object_name': 'Video'},
