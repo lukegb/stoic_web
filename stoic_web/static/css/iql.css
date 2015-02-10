@@ -16,9 +16,11 @@ body {
     padding-right: 5px;
 }
 
-.form{
-    padding: 9em 3em 0em 3em;
-    background-color: yellow;
+.iql-form{
+    padding: 0.5em 2em 1.5em 2em;
+    background-color: rgba(28, 29, 31, 0.6);
+    border-radius: 5px;
+    color: rgb(210, 210, 210);
 }
 
 .person{
