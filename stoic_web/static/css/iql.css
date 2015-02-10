@@ -1,0 +1,33 @@
+
+body {
+  background-image: url('img/backdrop.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.pushdown{
+    padding:4em 0em 0em 0em;
+}
+
+.form{
+    padding: 9em 3em 0em 3em;
+    background-color: yellow;
+}
+
+.person{
+    padding: 1.5em 2em 0em 2em;
+    background-color: rgba(28, 29, 31, 0.6);
+}
+
+.person:before {
+    content: "HERRO";
+    -webkit-filter: blur(500px);
+}
+
+.person-pic{
+    width: 75%;
+}
+
+.person-text{
+   color: darkgray;
+}
