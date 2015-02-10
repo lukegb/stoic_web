@@ -1,12 +1,19 @@
 
 body {
-  background-image: url('img/backdrop.jpg');
+  background-image: url('/static/misc/iql/backdrop.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
 }
 
+.jumbo-custom{
+    background-color: rgba(28, 29, 31, 0.6);
+    color: rgb(210, 210, 210);
+}
+
 .pushdown{
     padding:4em 0em 0em 0em;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .form{
@@ -15,13 +22,15 @@ body {
 }
 
 .person{
-    padding: 1.5em 2em 0em 2em;
+    padding: 1.5em 0.6em 0em 0.6em;
+    border-radius: 5px;
+    /*border-spacing: 5px 5px;*/
     background-color: rgba(28, 29, 31, 0.6);
 }
 
-.person:before {
-    content: "HERRO";
-    -webkit-filter: blur(500px);
+.person-container{
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .person-pic{
@@ -29,5 +38,6 @@ body {
 }
 
 .person-text{
-   color: darkgray;
+   color: rgb(210, 210, 210);
 }
+

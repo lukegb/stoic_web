@@ -108,7 +108,7 @@ class VideoDetailView( DetailView):
 class QuestionsLiveCreateView(CreateView):
 
     model = QuestionsLive
-    template_name = 'questions_live.html'
+    template_name = 'questions_live_standalone.html'
     form_class = QLForm
 
 

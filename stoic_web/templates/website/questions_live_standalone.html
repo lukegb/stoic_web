@@ -15,7 +15,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="iql.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}/css/iql.css" rel="stylesheet">
     <!-- <link href="css/grayscale.css" rel="stylesheet"> -->
     <!-- <link href="css/iql.css" rel="stylesheet"> -->
 
@@ -23,6 +23,10 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- JS -->
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>#}
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,11 +40,20 @@
  <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5 col-md-offset-2 pushdown">
-                <div class="jumbotron">
-                    <div class="container-fluid">
-                        <h1>Cem broke the lights</h1>
-                        <p>Ever wanted to ask College who really runs the place?<p>
+            <div class="col-md-7 col-md-offset-1 pushdown">
+                <div class="jumbotron jumbo-custom">
+                    <div class="">
+                        <h1 style="font-size: 58px;">Imperial Questions Live</h1>
+                        <h2>Time to put your questions forward</h2>
+
+                        <h4>
+                        <ul>
+                          <li>Ever wanted to ask the Union a question?</li>
+                          <li>Does College take students' views Seriously?</li>
+                        </ul>
+                        </h4>
+                        <p>On Wednesday 18 February, 7pm, five panellists will be in the Beit West Basement Studio answering your questions. Submit here, or use #iql on Twitter. The show will be streamed live.</p>
+
                     </div>
                 </div>
             </div>
