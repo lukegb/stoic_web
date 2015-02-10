@@ -5,6 +5,7 @@ from django.views.generic.list import MultipleObjectMixin
 from django.views.generic.detail import SingleObjectMixin
 from django.utils import timezone
 from django.core.exceptions import ValidationError
+from django.conf import settings
 
 from vanilla import CreateView
 
@@ -114,7 +115,7 @@ class QuestionsLiveCreateView(CreateView):
         for key, val in form.cleaned_data.iteritems():
             new_data[key] = val
 
-        new_data['ip'] = self.request.META['REMOTE_ADDR']
+        new_data['ip'] = self.request.META['HTTP_X_FORWARDED_FOR'] if getattr(settings, 'USE_X_FORWARDED_HOST', False) else self.request.META['REMOTE_ADDR']
         new_data['user_agent'] = self.request.META['HTTP_USER_AGENT']
 
         new_form = QLForm(data=new_data)
