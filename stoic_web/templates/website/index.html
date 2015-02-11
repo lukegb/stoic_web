@@ -2,6 +2,22 @@
 
 {% block main_container %}
 <div class="pure-g-r">
+    <div class="pure-u-1-2 module module-link module-red">
+        <a href="https://www.facebook.com/ImperialCollegeTV">
+            <div class="module-content">
+                <div class="module-icon"><i class="fa fa-facebook fa-5x"></i></div>
+                <h3>Check out our Facebook page</h3>
+            </div>
+        </a>
+    </div>
+    <div class="pure-u-1-2 module module-link module-blue">
+        <a href="https://www.twitter.com/ICTelevision">
+            <div class="module-content">
+                <div class="module-icon"><i class="fa fa-twitter fa-5x"></i></div>
+                <h3>Follow us on Twitter</h3>
+            </div>
+        </a>
+    </div>
 {% if live_streaming %}
     <div class="pure-u-1-2 module module-link module-red">
         <a href="{%  url "live" %}">
@@ -13,7 +29,7 @@
         </a>
     </div>
 {% endif %}
-    <div class="pure-u-1{% if live_streaming %}-2{% endif %} module module-link module-blue">
+    <div class="pure-u-1{% if live_streaming %}-2{% endif %} module module-link module-coral">
         <a href="{%  url "video_index" %}">
             <div class="module-content">
                 <div class="module-icon"><i class="fa fa-desktop fa-5x"></i></div>
@@ -56,7 +72,6 @@
         </a>
     </div>
 </div>
-
 
 
 

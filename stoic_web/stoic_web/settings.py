@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY','t-1bm#u1gcj#y0lxnh#_a=ihe$$4bg(-(*%&=(*#q=ya)q8drl')
 if os.getenv('DJANGO_PRODUCTION',False)=='y':
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
-    TEMPLATE_DEBUG = False
+    DEBUG = True
+    TEMPLATE_DEBUG = True
     ALLOWED_HOSTS = ['.imperialcollege.tv']
 else:
     # SECURITY WARNING: don't run with debug turned on in production!
@@ -58,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'stoic_web.middleware.MultipleProxyMiddleware',
 )
 
 ROOT_URLCONF = 'stoic_web.urls'
@@ -120,3 +121,7 @@ INTERNAL_IPS = ('127.0.0.1',os.getenv('DJANGO_DEV_IP', '::1'),)
 
 YOUTUBE_CHANNEL_ID = os.getenv('YOUTUBE_CHANNEL_ID', 'UCbnVV7tcJZlUJTh8zPQFxMQ')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
+USE_X_FORWARDED_HOST = True
