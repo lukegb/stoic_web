@@ -22,12 +22,9 @@
     <!-- <link href="css/iql.css" rel="stylesheet"> -->
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- JS -->
-{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>#}
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -55,7 +52,7 @@
                             <li>Does College take students' views seriously?</li>
                         </ul>
                         </h4>
-                        <p>On Wednesday 18 February, 7pm, five panellists will be live on <a href="http://imperialcollege.tv">ICTV</a> with a studio audience, answering your questions. Submit here, or use #IQL on Twitter. The show will be streamed live.</p>
+                        <p>On Wednesday 18 February, 7pm, five panellists will be live on <a href="{% url 'home' %}">ICTV</a> with a studio audience, answering your questions. Submit here, or use #IQL on Twitter. The show will be streamed <a href="{% url 'live' %}">live online</a>.</p>
 
                     </div>
                 </div>
@@ -103,6 +100,13 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="page-header panellists-header">
+                    The Panellists
+                </div>
+            </div>
+        </div>
 
         <div class="row">
 
@@ -147,6 +151,33 @@
                         </div>
                      </div>
         </div>
+
+        <footer>
+            <div class="row iql-footer">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="footer-item">
+
+                        <h4>Brought to you by</h4>
+                        <a href="{% url 'home' %}"><img style="height: 4em;" src="{% static 'img/ictv.png' %}" alt="ICTV"></a>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="footer-item">
+                        <h4>Part of </h4>
+                        <a href="http://icmedia.org.uk/"><img style="height: 4em;" src="{% static 'img/icu-media.png' %}" alt="ICU Media Group"></a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-md-offset-3 text-center">
+                    <div class="footer-item">
+                        <h4>Supported by</h4>
+                        <a href="https://www.imperialcollegeunion.org/"><img style="height: 4em;" src="{% static 'misc/iql/icu.jpg' %}" alt="Imperial College Union"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
 

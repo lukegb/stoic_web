@@ -3,6 +3,7 @@ body {
   background-image: url('/static/misc/iql/backdrop.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+  background-color: rgb(9, 16, 40);
 }
 
 .jumbo-custom{
@@ -24,9 +25,8 @@ body {
 }
 
 .person{
-    padding: 1.5em 0.6em 0em 0.6em;
+    padding: 1.5em 0.6em 1em 0.6em;
     border-radius: 5px;
-    /*border-spacing: 5px 5px;*/
     background-color: rgba(28, 29, 31, 0.6);
 }
 
@@ -41,5 +41,20 @@ body {
 
 .person-text{
    color: rgb(210, 210, 210);
+}
+
+.panellists-header{
+    color: rgb(210, 210, 210);
+    font-size: 36px;
+    padding-left: 4em;
+}
+
+.iql-footer{
+    padding-bottom: 1em;
+    background-color: white;
+}
+
+.footer-item{
+    text-align: center;
 }
 
