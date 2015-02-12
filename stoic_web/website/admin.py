@@ -40,10 +40,14 @@ class EventAdmin(admin.ModelAdmin):
     form=PostForm
     prepopulated_fields = {'slug': ('title',)}
 
+class IQLAdmin(admin.ModelAdmin):
+    readonly_fields = ('email', 'name', 'question', 'be_there', 'ip', 'user_agent', 'created_stamp')
+
+
 admin.site.register(Link)
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Video, VideoAdmin)
 admin.site.register(Programme,ProgAdmin)    
 admin.site.register(Genre)
-admin.site.register(QuestionsLive)
+admin.site.register(QuestionsLive, IQLAdmin)

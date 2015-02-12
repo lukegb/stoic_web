@@ -116,3 +116,4 @@ class QuestionsLive(models.Model):
     be_there = models.BooleanField(default=False)
     ip = models.IPAddressField()
     user_agent = models.TextField()
+    created_stamp = models.DateTimeField(editable=False, auto_now_add=True)
