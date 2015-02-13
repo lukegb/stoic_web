@@ -3,6 +3,9 @@ from django.forms import ModelForm
 from website.models import Video, Programme, Blog, Event, Link, Genre, QuestionsLive
 from suit_redactor.widgets import RedactorWidget
 from suit.widgets import SuitDateWidget, SuitTimeWidget, SuitSplitDateTimeWidget
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
+
 class VideoAdmin(admin.ModelAdmin):
 	fieldsets = [
 	    (None,                {'fields': ['youtube_id','title','description', 'featured']}),
@@ -40,8 +43,17 @@ class EventAdmin(admin.ModelAdmin):
     form=PostForm
     prepopulated_fields = {'slug': ('title',)}
 
-class IQLAdmin(admin.ModelAdmin):
+
+class IQLResource(resources.ModelResource):
+
+    class Meta:
+        model = QuestionsLive
+
+
+class IQLAdmin(ImportExportModelAdmin):
     readonly_fields = ('email', 'name', 'question', 'be_there', 'ip', 'user_agent', 'created_stamp')
+    resource_class = IQLResource
+
 
 
 admin.site.register(Link)

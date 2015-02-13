@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'suit_redactor',
     'raven.contrib.django.raven_compat',
+    'import_export',
     'website',
 )
 
