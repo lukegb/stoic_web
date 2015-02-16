@@ -117,3 +117,6 @@ class QuestionsLive(models.Model):
     ip = models.IPAddressField()
     user_agent = models.TextField()
     created_stamp = models.DateTimeField(editable=False, auto_now_add=True)
+
+    def __unicode__(self):
+        return "Question submitted {0}, from {1}".format(self.created_stamp.strftime('%d-%m-%Y %H:%M'), self.name)
